@@ -20,15 +20,11 @@ app.get("/", (req, res) => {
     res.send("Hello this is the weekly api!");
   });
 
-app.use(function errorHandler(error, req, res, next) {
-  let response;
-  if (NODE_ENV === "production") {
-    response = { error: { message: "server error" } };
-  } else {
-    console.error("error");
-    response = { message: error.message, error };
-  }
-  res.status(500).json(response);
-});
+  app.use((error, req, res, next) => {
+    console.error(error); 
+    res.status(500).json({
+      error: {message: "Internal server error"}
+    })
+  });
 
 module.exports = app;
