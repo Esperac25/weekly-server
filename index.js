@@ -96,5 +96,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`server has started on port ${PORT}`);
+  console.log(`server has started on port ${process.env.PORT}`);
 });
