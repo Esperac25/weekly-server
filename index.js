@@ -30,7 +30,7 @@ app.post('/items', async (req, res) => {
 app.get('/items', async (req, res) => {
   try {
     const allItems = await pool.query("SELECT * FROM items");
-    res.json(allItems.rows);
+    await res.json(allItems.rows);
   } catch (err) {
     console.error(err.message);
   }
