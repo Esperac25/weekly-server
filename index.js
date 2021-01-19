@@ -95,6 +95,6 @@ app.get("/", (req, res) => {
   res.send("Hello this is the weekly api!");
 });
 
-app.listen(5000, () => {
-  console.log("server has started on port 5000");
+app.listen(process.env.PORT, () => {
+  console.log(`server has started on port ${PORT}`);
 });
