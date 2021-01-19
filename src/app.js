@@ -20,11 +20,11 @@ app.get("/", (req, res) => {
     res.send("Hello this is the weekly api!");
   });
 
-  app.use((error, req, res, next) => {
-    console.error(error); 
-    res.status(500).json({
-      error: {message: "Internal server error"}
-    })
-  });
+  // app.use((error, req, res, next) => {
+  //   console.error(error); 
+  //   res.status(500).json({
+  //     error: {message: "Internal server error"}
+  //   })
+  // });
 
 module.exports = app;
