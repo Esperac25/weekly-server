@@ -4,24 +4,30 @@ const xss = require('xss');
 const jsonParser = express.json();
 const itemsRouter = express.Router();
 
-const serializeItem = (item) => ({
-    item_id: item.item_id,
-    description: xss(item.description),
-});
+
 
 itemsRouter
   .route('/')
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
       .then((items) => {
-        return res.json(items.map(serializeItem))
+        if(items.length !== 0){
+          items = items.map(item => {
+            return {
+              item_id: item.item_id,
+              description: xss(item.description)
+            };
+          });
+        }
+        return items;
       })
+      .then(items => res.json(items))
       .catch(next);
   })
   .post(jsonParser,(req, res, next) => {
-    const { description: newDescription } = req.body;
+    const { description } = req.body;
     const newItem = { 
-      description: newDescription
+      description 
     };
 
     for (const [value] of Object.entries(newItem)) {
@@ -31,7 +37,9 @@ itemsRouter
         });
       }
     }
-
+    newItem = {
+      description: xss(description)
+    };
     ItemsService.insertItem(
       req.app.get('db'),
       newItem
@@ -40,7 +48,7 @@ itemsRouter
         res
           .status(201)
           .location(`/api/items/${item.item_id}`)
-          .json(serializeItem(item));
+          .json(item);
       })
       .catch(next);
   });
@@ -64,7 +72,10 @@ itemsRouter
       .catch(next);
   })
   .get((req, res, next) => {
-    res.json(res.item)
+    res.json({
+      item_id: res.item.item_id,
+      description: xss(res.item.description)
+    })
   })
   .delete((req, res, next) => {
     ItemsService.deleteItem(
