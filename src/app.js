@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/items", itemsRouter);
+app.use(`/api/items`, itemsRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello this is the weekly api!");
