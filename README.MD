@@ -62,5 +62,5 @@
 
     run database migrations, npm run migrate && npm run migrate:test
 
-# Once you're done following the steps you should be able to run the server locally!
+### Once you're done following the steps you should be able to run the server locally!
 
