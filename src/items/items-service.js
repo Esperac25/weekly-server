@@ -4,7 +4,7 @@ const ItemsService = {
       .select('*')
       .from('items');
   },
-  insertArticle(db, newItem) {
+  insertItem(db, newItem) {
     return db
       .insert(newItem)
       .into('items')
