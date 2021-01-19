@@ -89,4 +89,4 @@ itemsRouter
       .catch(next);
   });
 
-module.exports = ItemsRouter;
+module.exports = itemsRouter;
