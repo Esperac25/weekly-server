@@ -10,7 +10,7 @@ const serializeItem = (item) => ({
 });
 
 itemsRouter
-  .route("/")
+  .route(`/`)
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
       .then((items) => {
@@ -20,7 +20,7 @@ itemsRouter
   })
   .post(jsonParser,(req, res, next) => {
     const { description: newDescription } = req.body;
-    let newItem = { 
+    const newItem = { 
       description: newDescription
     };
 
