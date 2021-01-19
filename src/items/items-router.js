@@ -10,7 +10,7 @@ const serializeItem = (item) => ({
 });
 
 itemsRouter
-  .route(`/`)
+  .route('/')
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
       .then((items) => {
