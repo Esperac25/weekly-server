@@ -12,7 +12,7 @@
     "migrate:test": "env NODE_ENV=test npm run migrate",
     "predeploy": "npm audit",
     "deploy": "git push heroku main",
-    "postdelploy": "npm run migrate:production"
+    "postdeploy": "npm run migrate:production"
   },
   "keywords": [],
   "author": "",
