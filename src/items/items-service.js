@@ -13,17 +13,17 @@ const ItemsService = {
         return rows[0];
       });
   },
-  getById(db, id) {
+  getById(db, item_id) {
     return db
       .select('*')
       .from('items')
-      .where({ id: id })
+      .where('item_id', item_id)
       .first();
   },
-  deleteItem(db, id) {
+  deleteItem(db, item_id) {
     return db
       .from('items')
-      .where({ id })
+      .where({ item_id })
       .delete();
   },
 };
