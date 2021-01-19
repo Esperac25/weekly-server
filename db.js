@@ -8,4 +8,4 @@ const pool = new Pool({
     password: '7bf8033790cba14a418f2f6c142244a75efabbf5cba678265b6d325a732b3326'
 });
 
-module.exports = pool;s
+module.exports = pool;
