@@ -1,17 +1,17 @@
-#Weekly - Server
+# Weekly - Server
 
-##RESTful api for Weekly-Client
+## RESTful api for Weekly-Client
 
     heroku url: https://weekly-api.herokuapp.com/
 
-Endpoints
+### Endpoints
 
     GET /api/items | get all items
     POST /api/items | add an item
     GET /api/items/:item_id | get a specific item by id
     DELETE /api/items/:item_id | delete a specific item by id
 
-Req & Res
+### Req & Res
 
     Include Content-Type: application/json in header of all requests
     Responses are in JSON format
@@ -37,10 +37,10 @@ Req & Res
            "description": "Do homework"
         }
 
-Technologies
+## Technologies
 
-Express.js, PostgreSQL, Node.js
-Scripts
+### Express.js, PostgreSQL, Node.js
+### Scripts
 
     Start the application npm start
     Start development server npm dev
@@ -48,7 +48,7 @@ Scripts
     Run test database migrations npm run migrate:test
     Deploy to heroku & run migrations npm run deploy
 
-Use / Set-up
+## Use / Set-up
 
     clone repo
     install and audit dependencies, npm i & npm audit fix
@@ -62,5 +62,5 @@ Use / Set-up
 
     run database migrations, npm run migrate && npm run migrate:test
 
-Once you're done following the steps you should be able to run the server locally!
+# Once you're done following the steps you should be able to run the server locally!
 
