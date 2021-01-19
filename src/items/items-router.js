@@ -47,7 +47,7 @@ itemsRouter
       .then(item => {
         res
           .status(201)
-          .location(`/api/items/${item.item_id}`)
+          .location(`/items/${item.item_id}`)
           .json(item);
       })
       .catch(next);
