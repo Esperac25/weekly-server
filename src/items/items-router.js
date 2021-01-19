@@ -14,7 +14,7 @@ itemsRouter
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
       .then((items) => {
-          res.json(items.map(serializeItem))
+        return res.json(items.map(serializeItem))
       })
       .catch(next);
   })
